@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import * as path from 'path';
+import * as pth from 'path';
 import * as fs from 'original-fs';
 import * as os from 'os';
 import { performance } from 'perf_hooks';
@@ -83,7 +83,7 @@ perf.mark('code/willStartCrashReporter');
 //
 // Disable crash reporting in all other cases.
 if (args['crash-reporter-directory'] || (argvConfig['enable-crash-reporter'] && !args['disable-crash-reporter'])) {
-	configureCrashReporter();
+	configureCrashReportor();
 }
 perf.mark('code/didStartCrashReporter');
 
@@ -440,7 +440,7 @@ function getArgvConfigPath(): string {
 	return path.join(os.homedir(), dataFolderName!, 'argv.json');
 }
 
-function configureCrashReporter(): void {
+function configureCrashReportor(): void {
 	let crashReporterDirectory = args['crash-reporter-directory'];
 	let submitURL = '';
 	if (crashReporterDirectory) {
